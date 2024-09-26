@@ -1,0 +1,451 @@
+[E 240926 10:10:37 main:303] Historic Api failed: 'dict' object has no attribute 'loc'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 274, in <module>
+        data.loc[data['RSI'] < RSI_OVERSOLD, 'Signal'] = 'Buy'
+        ^^^^^^^^
+    AttributeError: 'dict' object has no attribute 'loc'
+[E 240926 10:11:10 main:303] Historic Api failed: 'RSI'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+        return self._engine.get_loc(casted_key)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+      File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+      File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+      File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+    KeyError: 'RSI'
+    
+    The above exception was the direct cause of the following exception:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 274, in <module>
+        df.loc[df['RSI'] < RSI_OVERSOLD, 'Signal'] = 'Buy'
+               ~~^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+        indexer = self.columns.get_loc(key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+        raise KeyError(key) from err
+    KeyError: 'RSI'
+[E 240926 10:19:24 smartConnect:243] Error occurred while making a POST request to https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData. Error: Something Went Wrong, Please Try After Sometime. URL: https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData, Headers: {'Content-type': 'application/json', 'X-ClientLocalIP': '127.0.0.1', 'X-ClientPublicIP': '106.193.147.98', 'X-MACAddress': 'd7:bc:73:52:fd:6c', 'Accept': 'application/json', 'X-PrivateKey': 'lnZlFunT', 'X-UserType': 'USER', 'X-SourceID': 'WEB'}, Request: {'exchange': 'NSE', 'symboltoken': 'Symbol not found', 'interval': 'FIVE_MINUTE', 'fromdate': '2024-09-25 09:00', 'todate': '2024-09-26 09:00'}, Response: {'message': 'Something Went Wrong, Please Try After Sometime', 'errorcode': 'AB1004', 'status': False, 'data': None}
+[E 240926 11:13:31 main:303] Historic Api failed: [Errno 22] Invalid argument: 'COALINDIA-EQFIVE_MINUTE2024-09-25 09:002024-09-26 09:00.csv'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 278, in <module>
+        df.to_csv(f'{STOCK_NAME}{TIME_FRAME}{FETCH_OLD_DATE_FROM}{FETCH_OLD_DATE_TO}.csv', index=False)
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+        return func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+        return DataFrameRenderer(formatter).to_csv(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+        csv_formatter.save()
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+        with get_handle(
+             ^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+        handle = open(
+                 ^^^^^
+    OSError: [Errno 22] Invalid argument: 'COALINDIA-EQFIVE_MINUTE2024-09-25 09:002024-09-26 09:00.csv'
+[E 240926 11:17:11 main:304] Historic Api failed: [Errno 22] Invalid argument: 'COALINDIA-EQFIVE_MINUTE2024-09-25 09:002024-09-26 09:00.csv'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 278, in <module>
+        df.to_csv(f'{name}.csv', index=False)
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+        return func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+        return DataFrameRenderer(formatter).to_csv(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+        csv_formatter.save()
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+        with get_handle(
+             ^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+        handle = open(
+                 ^^^^^
+    OSError: [Errno 22] Invalid argument: 'COALINDIA-EQFIVE_MINUTE2024-09-25 09:002024-09-26 09:00.csv'
+[E 240926 11:40:17 main:305] Historic Api failed: [Errno 13] Permission denied: 'SBIN-EQONE_DAY2024-09-01_09_002024-09-26_09_00.csv'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 279, in <module>
+        df.to_csv(f'{name_sanitized}.csv', index=False)
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+        return func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+        return DataFrameRenderer(formatter).to_csv(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+        csv_formatter.save()
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+        with get_handle(
+             ^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+        handle = open(
+                 ^^^^^
+    PermissionError: [Errno 13] Permission denied: 'SBIN-EQONE_DAY2024-09-01_09_002024-09-26_09_00.csv'
+[E 240926 11:52:26 smartConnect:243] Error occurred while making a POST request to https://apiconnect.angelone.in/rest/auth/angelbroking/user/v1/loginByPassword. Error: Client Is Block For Trading. URL: https://apiconnect.angelone.in/rest/auth/angelbroking/user/v1/loginByPassword, Headers: {'Content-type': 'application/json', 'X-ClientLocalIP': '127.0.0.1', 'X-ClientPublicIP': '106.193.147.98', 'X-MACAddress': 'd7:bc:73:52:fd:6c', 'Accept': 'application/json', 'X-PrivateKey': 'fxfy6i3M', 'X-UserType': 'USER', 'X-SourceID': 'WEB'}, Request: {'clientcode': 'A63499057', 'password': '1308', 'totp': '631487'}, Response: {'success': False, 'message': 'Client Is Block For Trading', 'errorCode': 'AB1006', 'data': ''}
+[E 240926 11:57:49 smartConnect:243] Error occurred while making a POST request to https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData. Error: Invalid Token. URL: https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData, Headers: {'Content-type': 'application/json', 'X-ClientLocalIP': '127.0.0.1', 'X-ClientPublicIP': '106.193.147.98', 'X-MACAddress': 'd7:bc:73:52:fd:6c', 'Accept': 'application/json', 'X-PrivateKey': 'fxfy6i3M', 'X-UserType': 'USER', 'X-SourceID': 'WEB'}, Request: {'exchange': 'NSE', 'symboltoken': '3045', 'interval': 'ONE_HOUR', 'fromdate': '2024-09-01 09:00', 'todate': '2024-09-26 09:00'}, Response: {'success': False, 'message': 'Invalid Token', 'errorCode': 'AG8001', 'data': ''}
+[E 240926 11:57:49 main:308] Historic Api failed: DataFrame constructor not properly called!
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 262, in <module>
+        df = pd.DataFrame(hist_data, columns=['date', 'open', 'high', 'low', 'close', 'volume'])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\frame.py", line 886, in __init__
+        raise ValueError("DataFrame constructor not properly called!")
+    ValueError: DataFrame constructor not properly called!
+[E 240926 13:03:10 main:317] Historic Api failed: [Errno 13] Permission denied: 'POWERGRID-EQONE_DAY2023-09-01_09_002024-09-27_09_00.csv'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 290, in <module>
+        df.to_csv(f'{name_sanitized}.csv', index=False)
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+        return func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+        return DataFrameRenderer(formatter).to_csv(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+        csv_formatter.save()
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+        with get_handle(
+             ^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+        handle = open(
+                 ^^^^^
+    PermissionError: [Errno 13] Permission denied: 'POWERGRID-EQONE_DAY2023-09-01_09_002024-09-27_09_00.csv'
+[E 240926 13:08:01 main:312] Historic Api failed: Argument 'real' has incorrect type (expected numpy.ndarray, got DataFrame)
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 266, in <module>
+        df["sma"] = ta.SMA(df, timeperiod=15).round(2)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\talib\__init__.py", line 64, in wrapper
+        result = func(*_args, **_kwds)
+                 ^^^^^^^^^^^^^^^^^^^^^
+    TypeError: Argument 'real' has incorrect type (expected numpy.ndarray, got DataFrame)
+[E 240926 13:44:10 main:349] Historic Api failed: [Errno 13] Permission denied: 'POWERGRID-EQONE_DAY2023-09-01_09_002024-09-27_09_00.csv'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 295, in <module>
+        df.to_csv(f'{name_sanitized}.csv', index=False)
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+        return func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+        return DataFrameRenderer(formatter).to_csv(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+        csv_formatter.save()
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+        with get_handle(
+             ^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+        handle = open(
+                 ^^^^^
+    PermissionError: [Errno 13] Permission denied: 'POWERGRID-EQONE_DAY2023-09-01_09_002024-09-27_09_00.csv'
+[E 240926 14:01:16 main:349] Historic Api failed: name 'df' is not defined
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 300, in <module>
+        dfema["Ema"] = ta.EMA(df['close'], timeperiod=3).round(2)
+                              ^^
+    NameError: name 'df' is not defined
+[E 240926 14:01:33 main:349] Historic Api failed: name 'df' is not defined
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 300, in <module>
+        dfema["Ema"] = ta.EMA(df['close'], timeperiod=3).round(2)
+                              ^^
+    NameError: name 'df' is not defined
+[E 240926 14:01:50 main:346] Historic Api failed: name 'df' is not defined
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 297, in <module>
+        dfema["Ema"] = ta.EMA(df['close'], timeperiod=3).round(2)
+                              ^^
+    NameError: name 'df' is not defined
+[E 240926 14:02:24 main:346] Historic Api failed: name 'df' is not defined
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 297, in <module>
+        dfema["Ema"] = ta.EMA(df['close'], timeperiod=3).round(2)
+                              ^^
+    NameError: name 'df' is not defined
+[E 240926 14:16:00 main:346] Historic Api failed: [Errno 13] Permission denied: 'POWERGRID-EQONE_DAY2023-09-01_09_002024-09-27_09_00.csv'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 319, in <module>
+        dfema.to_csv(f'{name_sanitized}.csv', index=False)
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+        return func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+        return DataFrameRenderer(formatter).to_csv(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+        csv_formatter.save()
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+        with get_handle(
+             ^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+        handle = open(
+                 ^^^^^
+    PermissionError: [Errno 13] Permission denied: 'POWERGRID-EQONE_DAY2023-09-01_09_002024-09-27_09_00.csv'
+[E 240926 15:38:04 main:351] Historic Api failed: 1
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+        return self._engine.get_loc(casted_key)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+      File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+      File "pandas\\_libs\\hashtable_class_helper.pxi", line 2606, in pandas._libs.hashtable.Int64HashTable.get_item
+      File "pandas\\_libs\\hashtable_class_helper.pxi", line 2630, in pandas._libs.hashtable.Int64HashTable.get_item
+    KeyError: 1
+    
+    The above exception was the direct cause of the following exception:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 318, in <module>
+        if dfema.loc[i, 'Ema'] > dfema.loc[i, 'Ematwo'] and dfema.loc[i - 1, 'Ema'] < dfema.loc[i - 1, 'Ematwo']:
+           ~~~~~~~~~^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\indexing.py", line 1183, in __getitem__
+        return self.obj._get_value(*key, takeable=self._takeable)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\frame.py", line 4221, in _get_value
+        row = self.index.get_loc(index)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+        raise KeyError(key) from err
+    KeyError: 1
+[E 240926 15:39:03 main:351] Historic Api failed: 1
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+        return self._engine.get_loc(casted_key)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+      File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+      File "pandas\\_libs\\hashtable_class_helper.pxi", line 2606, in pandas._libs.hashtable.Int64HashTable.get_item
+      File "pandas\\_libs\\hashtable_class_helper.pxi", line 2630, in pandas._libs.hashtable.Int64HashTable.get_item
+    KeyError: 1
+    
+    The above exception was the direct cause of the following exception:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 318, in <module>
+        if dfema.loc[i, 'Ema'] > dfema.loc[i, 'Ematwo'] and dfema.loc[i - 1, 'Ema'] < dfema.loc[i - 1, 'Ematwo']:
+           ~~~~~~~~~^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\indexing.py", line 1183, in __getitem__
+        return self.obj._get_value(*key, takeable=self._takeable)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\frame.py", line 4221, in _get_value
+        row = self.index.get_loc(index)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+        raise KeyError(key) from err
+    KeyError: 1
+[E 240926 15:49:59 main:351] Historic Api failed: [Errno 13] Permission denied: 'ITC-EQONE_DAY2023-09-25_09_002024-09-27_09_00.csv'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 292, in <module>
+        df.to_csv(f'{name_sanitized}.csv', index=False)
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+        return func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+        return DataFrameRenderer(formatter).to_csv(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+        csv_formatter.save()
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+        with get_handle(
+             ^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+        handle = open(
+                 ^^^^^
+    PermissionError: [Errno 13] Permission denied: 'ITC-EQONE_DAY2023-09-25_09_002024-09-27_09_00.csv'
+[E 240926 15:55:03 smartConnect:243] Error occurred while making a POST request to https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData. Error: Something Went Wrong, Please Try After Sometime. URL: https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData, Headers: {'Content-type': 'application/json', 'X-ClientLocalIP': '127.0.0.1', 'X-ClientPublicIP': '106.193.147.98', 'X-MACAddress': 'd7:bc:73:52:fd:6c', 'Accept': 'application/json', 'X-PrivateKey': 'lnZlFunT', 'X-UserType': 'USER', 'X-SourceID': 'WEB'}, Request: {'exchange': 'NSE', 'symboltoken': 'Symbol not found', 'interval': 'ONE_DAY', 'fromdate': '2023-09-25 09:00', 'todate': '2024-09-27 09:00'}, Response: {'message': 'Something Went Wrong, Please Try After Sometime', 'errorcode': 'AB1004', 'status': False, 'data': None}
+[E 240926 15:55:12 smartConnect:243] Error occurred while making a POST request to https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData. Error: Something Went Wrong, Please Try After Sometime. URL: https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData, Headers: {'Content-type': 'application/json', 'X-ClientLocalIP': '127.0.0.1', 'X-ClientPublicIP': '106.193.147.98', 'X-MACAddress': 'd7:bc:73:52:fd:6c', 'Accept': 'application/json', 'X-PrivateKey': 'lnZlFunT', 'X-UserType': 'USER', 'X-SourceID': 'WEB'}, Request: {'exchange': 'NSE', 'symboltoken': 'Symbol not found', 'interval': 'ONE_DAY', 'fromdate': '2023-09-25 09:00', 'todate': '2024-09-27 09:00'}, Response: {'message': 'Something Went Wrong, Please Try After Sometime', 'errorcode': 'AB1004', 'status': False, 'data': None}
+[E 240926 15:55:22 smartConnect:243] Error occurred while making a POST request to https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData. Error: Something Went Wrong, Please Try After Sometime. URL: https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData, Headers: {'Content-type': 'application/json', 'X-ClientLocalIP': '127.0.0.1', 'X-ClientPublicIP': '106.193.147.98', 'X-MACAddress': 'd7:bc:73:52:fd:6c', 'Accept': 'application/json', 'X-PrivateKey': 'lnZlFunT', 'X-UserType': 'USER', 'X-SourceID': 'WEB'}, Request: {'exchange': 'NSE', 'symboltoken': 'Symbol not found', 'interval': 'ONE_DAY', 'fromdate': '2023-09-25 09:00', 'todate': '2024-09-27 09:00'}, Response: {'message': 'Something Went Wrong, Please Try After Sometime', 'errorcode': 'AB1004', 'status': False, 'data': None}
+[E 240926 15:55:28 smartConnect:243] Error occurred while making a POST request to https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData. Error: Something Went Wrong, Please Try After Sometime. URL: https://apiconnect.angelone.in/rest/secure/angelbroking/historical/v1/getCandleData, Headers: {'Content-type': 'application/json', 'X-ClientLocalIP': '127.0.0.1', 'X-ClientPublicIP': '106.193.147.98', 'X-MACAddress': 'd7:bc:73:52:fd:6c', 'Accept': 'application/json', 'X-PrivateKey': 'lnZlFunT', 'X-UserType': 'USER', 'X-SourceID': 'WEB'}, Request: {'exchange': 'NSE', 'symboltoken': 'Symbol not found', 'interval': 'ONE_DAY', 'fromdate': '2023-09-25 09:00', 'todate': '2024-09-27 09:00'}, Response: {'message': 'Something Went Wrong, Please Try After Sometime', 'errorcode': 'AB1004', 'status': False, 'data': None}
+[E 240926 16:23:16 main:352] Historic Api failed: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 227, in _request
+        data = json.loads(r.content.decode("utf8"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 346, in loads
+        return _default_decoder.decode(s)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 337, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 355, in raw_decode
+        raise JSONDecodeError("Expecting value", s, err.value) from None
+    json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 331, in <module>
+        hist_data = smartApi.getCandleData(historicParam)["data"]
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 462, in getCandleData
+        getCandleDataResponse=self._postRequest("api.candle.data",historicDataParams)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 260, in _postRequest
+        return self._request(route, "POST", params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 230, in _request
+        raise ex.DataException("Couldn't parse the JSON response received from the server: {content}".format(
+    SmartApi.smartExceptions.DataException: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+[E 240926 16:26:10 main:362] Historic Api failed: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 227, in _request
+        data = json.loads(r.content.decode("utf8"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 346, in loads
+        return _default_decoder.decode(s)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 337, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 355, in raw_decode
+        raise JSONDecodeError("Expecting value", s, err.value) from None
+    json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 341, in <module>
+        hist_data = smartApi.getCandleData(historicParam)["data"]
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 462, in getCandleData
+        getCandleDataResponse=self._postRequest("api.candle.data",historicDataParams)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 260, in _postRequest
+        return self._request(route, "POST", params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 230, in _request
+        raise ex.DataException("Couldn't parse the JSON response received from the server: {content}".format(
+    SmartApi.smartExceptions.DataException: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+[E 240926 16:26:36 main:362] Historic Api failed: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 227, in _request
+        data = json.loads(r.content.decode("utf8"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 346, in loads
+        return _default_decoder.decode(s)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 337, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 355, in raw_decode
+        raise JSONDecodeError("Expecting value", s, err.value) from None
+    json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 341, in <module>
+        hist_data = smartApi.getCandleData(historicParam)["data"]
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 462, in getCandleData
+        getCandleDataResponse=self._postRequest("api.candle.data",historicDataParams)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 260, in _postRequest
+        return self._request(route, "POST", params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 230, in _request
+        raise ex.DataException("Couldn't parse the JSON response received from the server: {content}".format(
+    SmartApi.smartExceptions.DataException: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+[E 240926 16:27:02 main:364] Historic Api failed: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 227, in _request
+        data = json.loads(r.content.decode("utf8"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 346, in loads
+        return _default_decoder.decode(s)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 337, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 355, in raw_decode
+        raise JSONDecodeError("Expecting value", s, err.value) from None
+    json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 343, in <module>
+        hist_data = smartApi.getCandleData(historicParam)["data"]
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 462, in getCandleData
+        getCandleDataResponse=self._postRequest("api.candle.data",historicDataParams)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 260, in _postRequest
+        return self._request(route, "POST", params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 230, in _request
+        raise ex.DataException("Couldn't parse the JSON response received from the server: {content}".format(
+    SmartApi.smartExceptions.DataException: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+[E 240926 16:27:19 main:363] Historic Api failed: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 227, in _request
+        data = json.loads(r.content.decode("utf8"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 346, in loads
+        return _default_decoder.decode(s)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 337, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1776.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 355, in raw_decode
+        raise JSONDecodeError("Expecting value", s, err.value) from None
+    json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 342, in <module>
+        hist_data = smartApi.getCandleData(historicParam)["data"]
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 462, in getCandleData
+        getCandleDataResponse=self._postRequest("api.candle.data",historicDataParams)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 260, in _postRequest
+        return self._request(route, "POST", params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\.venv\Lib\site-packages\SmartApi\smartConnect.py", line 230, in _request
+        raise ex.DataException("Couldn't parse the JSON response received from the server: {content}".format(
+    SmartApi.smartExceptions.DataException: Couldn't parse the JSON response received from the server: b'Access denied because of exceeding access rate'
+[E 240926 16:36:14 main:371] Historic Api failed: 'SmartConnect' object has no attribute 'smartExceptions'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 344, in <module>
+        time.sleep(2)
+    KeyboardInterrupt
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 345, in <module>
+        except smartApi.smartExceptions.DataException as e:
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+    AttributeError: 'SmartConnect' object has no attribute 'smartExceptions'
+[E 240926 16:38:27 main:371] Historic Api failed: 'SmartConnect' object has no attribute 'smartExceptions'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 344, in <module>
+        time.sleep(2)
+    KeyboardInterrupt
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 345, in <module>
+        except smartApi.smartExceptions.DataException as e:
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+    AttributeError: 'SmartConnect' object has no attribute 'smartExceptions'
+[E 240926 16:38:59 main:371] Historic Api failed: 'SmartConnect' object has no attribute 'smartExceptions'
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 344, in <module>
+        time.sleep(2)
+    KeyboardInterrupt
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\test\PycharmProjects\Angel Taking Trade\main.py", line 345, in <module>
+        except smartApi.smartExceptions.DataException as e:
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+    AttributeError: 'SmartConnect' object has no attribute 'smartExceptions'
